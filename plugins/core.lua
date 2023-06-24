@@ -22,6 +22,13 @@ return {
   },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
+  { "rafamadriz/friendly-snippets.nvim", enabled = false },
+  { "L3MON4D3/LuaSnip.nvim",             enabled = false },
+  { "saadparwaiz1/cmp_luasnip.nvim",     enabled = false },
+  -- { "mfussenegger/nvim-dap",             enabled = false },
+  -- { "rcarriga/nvim-dap-ui",              enabled = false },
+  -- { "jayp0521/mason-nvim-dap.nvim",      enabled = false }
+
   --
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
