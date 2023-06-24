@@ -240,7 +240,7 @@ return {
         },
       }
     end,
-    --NOTE: TODO comments
+    --WARN: TODO comments что то не так с цветами
     "folke/todo-comments.nvim",
     {
       signs = true,      -- show icons in the signs column
@@ -305,4 +305,92 @@ return {
         pattern = [[\b(KEYWORDS):]], -- ripgrep regex
         -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
       },
+    },
+    --NOTE: network config for using AI in code
+    "huggingface/hfcc.nvim",
+    {
+      api_token = "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", -- cf Install paragraph
+      model = "bigcode/starcoder",                         -- can be a model ID or an http(s) endpoint
+      -- parameters that are added to the request body
+      query_params = {
+        max_new_tokens = 256,
+        temperature = 0.3,
+        top_p = 0.5,
+        stop_token = "<|endoftext|>",
+      },
+      -- set this if the model supports fill in the middle
+      fim = {
+        enabled = true,
+        prefix = "<fim_prefix>",
+        middle = "<fim_middle>",
+        suffix = "<fim_suffix>",
+      },
+    },
+    -- NOTE: iron config
+    "hkupty/iron.nvim",
+    {
+      config = {
+        -- Whether a repl should be discarded or not
+        scratch_repl = true,
+        -- Your repl definitions come here
+        repl_definition = {
+          sh = {
+            command = { "zsh" }
+          },
+          python = {
+            command = { "ipython" }
+            -- format = require("iron.fts.common").bracketed_paste,
+          }
+        },
+        preffered = {
+          python = "ipython"
+          -- clojure = "lein"
+        },
+        -- How the repl window will be displayed
+        -- See below for more information
+        -- repl_open_cmd = require('iron.view').bottom(40),
+      },
+      -- Iron doesn't set keymaps by default anymore.
+      -- You can set them here or manually add keymaps to the functions in iron.core
+      keymaps = {
+        send_motion = "<space>sc",
+        visual_send = "<space>sc",
+        send_file = "<space>sf",
+        send_line = "<space>sl",
+        send_mark = "<space>sw",
+        mark_motion = "<space>mc",
+        mark_visual = "<space>mc",
+        remove_mark = "<space>md",
+        cr = "<space>s<cr>",
+        interrupt = "<space>s<space>",
+        exit = "<space>sq",
+        clear = "<space>cl",
+      },
+      -- If the highlight is on, you can change how it looks
+      -- For the available options, check nvim_set_hl
+      highlight = {
+        italic = true
+      },
+      -- [NOTE:] CMP with ultisnip config
+      -- 'hrsh7th/nvim-cmp',
+      -- {
+      --   sources = {
+      --     { name = "nvim_lsp" },
+      --     { name = "ultisnips" },
+      --     { name = "buffer" },
+      --     { name = "path" },
+      --   },
+      --   confirm_opts = {
+      --     behavior = cmp.ConfirmBehavior.Replace,
+      --     select = false,
+      --   },
+      --   window = {
+      --     documentation = cmp.config.window.bordered(),
+      --   },
+      --   experimental = {
+      --     ghost_text = false,
+      --     native_menu = false,
+      --   },
+      -- }
+      --
     }
