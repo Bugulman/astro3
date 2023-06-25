@@ -1,5 +1,48 @@
 -- Mapping data with "desc" stored directly by vim.keymap.set().
---
+--NOTE: BROWSE plugin
+local bookmarks = {
+    ['work'] = {
+        "https://srv.rfdyn.ru",
+        "https://mail.rfdyn.ru/#1",
+        "https://rchat.rfdyn.ru/home",
+        "https://support.rfdyn.ru/index.php",
+        "https://srv.rfdyn.ru/releases/releases_dir.php",
+        "https://petrowiki.spe.org/PetroWiki" },
+    ['education'] = {
+        "https://stepik.org/",
+        "https://baguzin.ru/wp/",
+        "https://pbpython.com/index.html",
+        "https://github.com/rockerBOO/awesome-neovim",
+        "https://doc.rust-lang.org/book/",
+        "https://aur.archlinux.org/packages/",
+        "https://news.ycombinator.com/" },
+}
+
+local function command(name, rhs, opts)
+    opts = opts or {}
+    vim.api.nvim_create_user_command(name, rhs, opts)
+end
+
+command("BrowseInputSearch", function()
+    require('browse').input_search()
+end, {})
+
+command("Browse", function()
+    browse.browse { bookmarks = bookmarks }
+end, {})
+command("BrowseBookmarks", function()
+    require('browse').open_bookmarks({ bookmarks = bookmarks })
+end, {})
+command("BrowseDevdocsSearch", function()
+    browse.devdocs.search()
+end, {})
+command("BrowseDevdocsFiletypeSearch", function()
+    browse.devdocs.search_with_filetype()
+end, {})
+command("BrowseMdnSearch", function()
+    browse.mdn.search()
+end, {})
+
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
@@ -27,7 +70,7 @@ return {
         --telescope key
         ["<leader>fp"] = { ":lua require('telescope').extensions.projects.projects()<CR>", desc = "project search" },
         ["<leader>ft"] = { ":TodoTelescope<CR>", desc = "todo_search" },
-        ["<leader>ss"] = { ":lua require('spectre').open()<CR>", desc = "spectre" },
+        -- ["<leader>ss"] = { ":lua require('spectre').open()<CR>", desc = "spectre" },
         --telekastennnoremap <leader>zf :lua require('telekasten').find_notes()<CR>
         ["<leader>zd"] = { ":lua require('telekasten').find_daily_notes()<CR>", desc = "find_daily_notes" },
         ["<leader>zg"] = { ":lua require('telekasten').search_notes()<CR>", desc = "search_notes" },

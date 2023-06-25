@@ -8,7 +8,6 @@ return {
      "junegunn/vim-slash",
      "renerocksai/telekasten.nvim",
      "renerocksai/calendar-vim",
-     "lalitmee/browse.nvim",
      "hkupty/iron.nvim",
      "ahmedkhalf/project.nvim",
      "windwp/nvim-spectre",
@@ -34,6 +33,14 @@ return {
           opts = {
           },
           event = 'User Astrofile'
+     },
+     {
+          "lalitmee/browse.nvim",
+          dependencies = { "nvim-telescope/telescope.nvim" },
+          event = 'User Astrofile',
+          opts = { noremap = true, silent = true },
+          provider = 'brave',
+
      }
      -- {
      --   "ray-x/lsp_signature.nvim",
@@ -41,5 +48,5 @@ return {
      --   config = function()
      --     require("lsp_signature").setup()
      --   end,
-     -- },
+     -- }
 }
