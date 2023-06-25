@@ -3,22 +3,42 @@ return {
      -- Add plugins, the lazy syntax
      -- "andweeb/presence.nvim",
      "andymass/vim-matchup",
-     "folke/zen-mode.nvim",
+     -- "folke/zen-mode.nvim",
      "karb94/neoscroll.nvim",
      "junegunn/vim-slash",
-     "renerocksai/telekasten.nvim",
+     -- "renerocksai/telekasten.nvim",
      "renerocksai/calendar-vim",
      "hkupty/iron.nvim",
-     "ahmedkhalf/project.nvim",
-     "windwp/nvim-spectre",
-     "morhetz/gruvbox",
+     {
+          "ahmedkhalf/project.nvim",
+          event = 'VeryLazy'
+     },
+     {
+          "windwp/nvim-spectre",
+          event = 'User Astrofile'
+     },
+
+     -- NOTE: colors
+     -- "morhetz/gruvbox",
      "tomasr/molokai",
+     "sjl/badwolf",
+     "sainnhe/everforest",
+     "EdenEast/nightfox.nvim", -- lazy
+
      "jmcantrell/vim-virtualenv",
-     "nanotee/sqls.nvim",
+     -- "nanotee/sqls.nvim",
      "SirVer/ultisnips",
      "honza/vim-snippets",
      "quangnguyen30192/cmp-nvim-ultisnips",
-     "vim-scripts/vim-autopep8",
+     -- "vim-scripts/vim-autopep8",
+     {
+          "mg979/vim-visual-multi",
+          event = 'User Astrofile'
+     },
+     {
+          "mbbill/undotree",
+          event = 'User Astrofile'
+     },
      {
           "huggingface/hfcc.nvim",
           config = function()
@@ -38,9 +58,7 @@ return {
           "lalitmee/browse.nvim",
           dependencies = { "nvim-telescope/telescope.nvim" },
           event = 'User Astrofile',
-          opts = { noremap = true, silent = true },
           provider = 'brave',
-
      }
      -- {
      --   "ray-x/lsp_signature.nvim",

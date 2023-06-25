@@ -1,4 +1,4 @@
-local prefix = "<leader>s" --for spectre plugin
+-- local pjefix = "<leader>s" --for spectre plugin
 -- NOTE: ALPHA dashboard setting
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
@@ -72,8 +72,10 @@ return {
       },
 
       -- Set colorscheme to use
-      colorscheme = "molokai",
-
+      -- colorscheme = "everforest",
+      -- colorscheme = "Terafox",
+      colorscheme = "Nightfox",
+      --
       -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
       diagnostics = {
         virtual_text = true,
@@ -216,17 +218,6 @@ return {
     --NOTE: SPECTRE PLUGIN
     "nvim-pack/nvim-spectre",
     cmd == "Spectre",
-    keys == {
-      { prefix,        desc = "Search / Replace",                mode = { "n", "x" } },
-      { prefix .. "s", function() require("spectre").open() end, desc = "Spectre" },
-      {
-        prefix .. "w",
-        mode = "x",
-        function() require("spectre").open_visual { select_word = true } end,
-        desc = "Spectre (current word)",
-      },
-      { prefix .. "f", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
-    },
     opts == function()
       return {
         mapping = {
