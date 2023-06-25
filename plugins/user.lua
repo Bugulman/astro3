@@ -8,7 +8,10 @@ return {
      "junegunn/vim-slash",
      -- "renerocksai/telekasten.nvim",
      "renerocksai/calendar-vim",
-     "hkupty/iron.nvim",
+     -- {
+     --      "hkupty/iron.nvim",
+     --      event = 'User Astrofile'
+     -- },
      {
           "ahmedkhalf/project.nvim",
           event = 'VeryLazy'
@@ -19,7 +22,7 @@ return {
      },
 
      -- NOTE: colors
-     -- "morhetz/gruvbox",
+     "morhetz/gruvbox",
      "tomasr/molokai",
      "sjl/badwolf",
      "sainnhe/everforest",
@@ -59,7 +62,17 @@ return {
           dependencies = { "nvim-telescope/telescope.nvim" },
           event = 'User Astrofile',
           provider = 'brave',
-     }
+     },
+     {
+          'pappasam/nvim-repl',
+          dependencies = { "tpope/vim-repeat" },
+          opts = {
+               repl_filetype_commands = {
+                    python = "ipython --no-autoindent",
+               }
+          },
+          event = 'User Astrofile'
+     },
      -- {
      --   "ray-x/lsp_signature.nvim",
      --   event = "BufRead",
