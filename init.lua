@@ -317,25 +317,3 @@ return {
         suffix = "<fim_suffix>",
       },
     }
-
--- [NOTE:] CMP with ultisnip config
--- 'hrsh7th/nvim-cmp',
--- {
---   sources = {
---     { name = "nvim_lsp" },
---     { name = "ultisnips" },
---     { name = "buffer" },
---     { name = "path" },
---   },
---   confirm_opts = {
---     behavior = cmp.ConfirmBehavior.Replace,
---     select = false,
---   },
---   window = {
---     documentation = cmp.config.window.bordered(),
---   },
---   experimental = {
---     ghost_text = false,
---     native_menu = false,
---   },
--- }
