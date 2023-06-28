@@ -60,6 +60,7 @@ return {
         ["<leader>e"] = { ":Neotree reveal_force_cwd<Enter>", desc = "reveal Neotree window" },
         -- hop key
         -- ["jf"] = { ":HopChar2<cr>", silent = true, desc = "find letter" },
+        ["jf"] = { ":HFccSuggestion<cr>", silent = true, desc = "use AI dark power" },
         ["<C-i>"] = { ":UndotreeToggle<CR>", silent = true, desc = "UNDOTREE" },
         --telescope key
         ["<leader>fp"] = { ":lua require('telescope').extensions.projects.projects()<CR>", desc = "project search" },
